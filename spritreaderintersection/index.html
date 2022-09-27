@@ -127,7 +127,6 @@
 <body>
     <section>
     <div class="customcontainer" style="text-align: center">
-        <!-- <div class="cointainer" style="text-align: center"> -->
       <h1 class="noselect" id="demo">???</h1>
       <h1 class="noselect2" style="font-size: 80px; color: white;" id="xyz"> _ </h1>
       <h1 class="noselect" style="font-size: 80px; color: grey; " id="timer"></h1>
@@ -149,11 +148,6 @@
         <b id="kontrolx"></b>
         <b id="yanlistext2" style="font-size: 25px;">Yanlış yazdığın kelimeler ==> <b id="yanlis" style="color: red; font-size: 25px;"></b>
         </b>
-      <!-- <div id="timer01"></div> -->
-
-        <!-- BAŞLA , DUR , TEKRAR , KONTROL ET BUTONLARI
-    KONTROL SONUCUNU POP-UP JS ŞEKLİNDE VE TEXTAREA TEMIZLENECEK
-  -->
         <br />
         <br />
         <br />
@@ -165,160 +159,6 @@
         <br />
       </div>
     </section>
-      <script>
-        // document.getElementById("my-button1").style.display = "none";
-var start = document.getElementById("my-button");
-var timer;
-let count = 0;
-let speed = 1000;
-var ele = document.getElementById("timer");
-document.getElementById("my-button1").style.display = "none";
-document.getElementById("yanlis").style.display = "none";
-document.getElementById("yanlistext2").style.display = "none";
-start.addEventListener("click", function (event) {
-  (function () {
-    var sec = 1;
-    timer = setInterval(() => {
-      ele.innerHTML = "" + sec;
-      sec++;
-      document.getElementById("timer").style.display = "inline";
-      document.getElementById("my-button2").style.display = "none";
-      document.getElementById("my-button1").style.display = "inline";
-      document.getElementById("my-button").style.display = "none";
-      document.getElementById("xyz").style.display = "none";
-      document.getElementById("yanlis").style.display = "none";
-      document.getElementById("yanlistext2").style.display = "none";
-      // document.getElementById("kontrolx").style.display = "none";
-      // document.getElementById("demo").style.display = "none";
-      //--------------------------------------------------
-      // if (sec >= 3) {
-      //   speed = 500;
-      // }
-
-      if (sec >= 5) {
-        document.getElementById("timer").style.display = "none";
-        document.getElementById("my-button").style.display = "none";
-        document.getElementById("my-button").innerText = "TEKRAR";
-      }
-      // let text = "    bütün hayvanlar ve bitkiler";
-      let text = "    belki de hep savaşta gibi hiçbir zaman durmak istemiyor dünyaya bedel eşsiz ruhum dünyayı bilmek istemiyor";
-      const chars = text.split(" ");
-      for (i = 4; i < sec; i++) {
-        document.getElementById("demo").style.display = "inline";
-        document.getElementById("demo").innerHTML = chars[i];
-        // document.getElementById("demo").style.display = "inline";
-        //if (count < text.length){
-        //document.getElementById("demo") = text[count];}
-      }
-      
-      count++;
-      if (sec > text.split(" ").length) {
-        document.getElementById("demo").style.display = "none";
-        clearInterval(timer);
-        document.getElementById("my-button").style.display = "inline";
-        document.getElementById("my-button1").style.display = "none";
-        document.getElementById("my-button2").style.display = "inline";
-        document.getElementById("xyz").style.display = "inline";
-      }
-      // if (count == text.split(" ").length) {
-      //   //+1
-      //   document.getElementById("demo").style.display = "none";
-      //   clearInterval(timer);
-      //   document.getElementById("my-button").style.display = "inline";
-      //   document.getElementById("my-button1").style.display = "none";
-      //   document.getElementById("my-button3").style.display = "inline";
-      // }
-      //--------------------------------------------------
-    }, 500); // each 1 second
-  })();
-});
-
-function pause() {
-  clearInterval(timer);
-  sec = 0;
-  // document.getElementById("xyz").style.display = "inline";
-  document.getElementById("demo").style.display = "none";
-  document.getElementById("my-button").style.display = "inline";
-  document.getElementById("my-button1").style.display = "none";
-  if (sec >= 4) {
-    document.getElementById("timer").style.display = "none";
-  } else {
-    document.getElementById("timer").style.display = "none";
-  }
-}
-
-//----
-
-function kontrol() {
-  // var x = document.getElementById("kontrolText").value;
-  // document.getElementById("kontrolx").innerHTML = x;
-  // let b = "bütün hayvanlar ve bitkiler";
-  let b = "belki de hep savaşta gibi hiçbir zaman durmak istemiyor dünyaya bedel eşsiz ruhum dünyayı bilmek istemiyor";
-  clearInterval(timer);
-  // document.getElementById("kontrolx").style.display = "inline";
-  var x = (document.getElementById("kontrolText").value).trim();
-  // document.getElementById("kontrolx").innerHTML = x;
-  document.getElementById("yanlis").style.display = "inline";
-  document.getElementById("yanlistext2").style.display = "inline";
-
-  var fieldsa = x.split(' ');
-  var fieldsb = b.split(' ');
-  const intersection = fieldsa.filter(value => fieldsb.includes(value));
-  var girilen = fieldsa.length;
-  var dogru = intersection.length;
-  var count = fieldsb.length;
-  let difference = fieldsa.filter(x => !fieldsb.includes(x));
-  var yanlis = difference.length;
-  var bos = 0;
-  let yanlistext = difference;
-  document.getElementById("yanlis").innerHTML = yanlistext;
-  // difference = document.getElementById("yanlis");
-  // document.getElementById("sonuc").innerHTML = difference;
-  if(girilen<=count)
-  {
-    bos = count-girilen;
-  }
-  var fazla = 0;
-  // if(girilen>8)
-  // {
-  //   fazla = girilen-8;
-  // }
-  if (yanlis == 0) 
-  {
-    document.getElementById("yanlistext2").style.display = "none";
-  }
-  if(count<(dogru+yanlis))
-  {
-    // dogru = 8;
-    // dogru = dogru-yanlis;
-    fazla = (dogru+yanlis)-count
-    alert("Girdiğin metindeki doğru sayısı ==> "+dogru+" \nGirdiğin metindeki yanlış veya boş sayısı ==> "+(yanlis)+"\n Fazla kelime girilen kelime sayısı ==>"+fazla+"\n")
-  }
-  else
-  {
-  alert("Girdiğin metindeki doğru sayısı ==> "+dogru+" \nGirdiğin metindeki yanlış veya boş sayısı ==> "+(yanlis+bos)+"\n")
-  }
-  console.log(intersection)
-  console.log(dogru)
-  console.log(count)
-  console.log(girilen)
-  console.log(yanlis)
-  console.log(difference)
-}
-
-// if (sec == 1)
-//     {
-//     document.getElementById("timer").style.display = "none";
-//     }
-//     if (sec == 2)
-//     {
-//     document.getElementById("timer").style.display = "inline";
-//     }
-//     if (sec == 5)
-//     {
-//     document.getElementById("timer").style.display = "none";
-//     }
-
-      </script>
+      <script src="script.js"></script>
 </body>
 </html>
