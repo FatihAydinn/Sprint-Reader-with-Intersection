@@ -1,6 +1,5 @@
 # Sprint-Reader-with-Intersection
 Sprint Reader - Javascript 
 
-
-https://user-images.githubusercontent.com/81859164/192559387-56f6e3b1-f504-47b6-b32f-c62d9c72de88.mp4
+![ezgif-2-1261b359a1](https://user-images.githubusercontent.com/81859164/192560063-02100a14-45f4-44fe-ad5b-feb7a696bd31.gif)
 
