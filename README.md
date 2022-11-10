@@ -8,4 +8,4 @@ Sabit bir hızla ilerleyen metni okuyup aynı zamanda yazman gerek.
 
 Web sitemi ziyaret etmeyi unutma!
 <hr>
-https://zihninibosalt.net
+https://www.zihninibosalt.net
